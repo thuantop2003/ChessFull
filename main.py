@@ -106,7 +106,6 @@ while run:
             x_coord=(event.pos[0]+75)//100
             y_coord=(event.pos[1]+50)//100
             click_coord=[y_coord,x_coord]
-            print(click_coord)
             if click_coord==[1,9]:
                 mode="PVP"
                 pvp=True
@@ -129,8 +128,6 @@ while run:
                 bvb=False
                 board=board=cp.makeBoard()
                 turn_selection=0
-            print(pvp,pvb,bvb)
-            print(mode)
         if event.type==pg.KEYDOWN and (checking()[0]==0 or checking()[1]==0):
             if event.key==pg.K_RETURN:
                 board=board=cp.makeBoard()
@@ -159,6 +156,7 @@ while run:
                     for chess in board:
                         if(click_coord==chess.location):
                             board.remove(chess)
+                    for chess in board:        
                         if(chess.location[0]==selection.location[0] and chess.location[1]==selection.location[1]):
                             chess.location=click_coord
                     turn_selection=2;
